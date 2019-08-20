@@ -12,6 +12,7 @@ class HomeController : UIViewController {
     
     // MARK: - Properties
     
+    fileprivate let imageView = UIImageView(image: #imageLiteral(resourceName: "home"))
     var delegate : ContainerDelegate?
     
     
@@ -25,11 +26,18 @@ class HomeController : UIViewController {
     
     fileprivate func setupViews() {
         
-        view.backgroundColor = .blue
+        view.backgroundColor = .colour3
+        
+        view.addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 250).isActive = true
         
         navigationItem.title = "Home"
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "menuIcon"), style: .plain, target: self, action: #selector(handleMenuToggle))
-        navigationItem.leftBarButtonItem?.tintColor = .black
+        navigationItem.leftBarButtonItem?.tintColor = .colour1
         
     }
     

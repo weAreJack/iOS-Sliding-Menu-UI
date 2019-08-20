@@ -23,7 +23,7 @@ class MenuOptionCell: UITableViewCell {
     
     let descriptionLabel : UILabel = {
         let label = UILabel()
-        label.textColor = .darkGray
+        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -44,7 +44,7 @@ class MenuOptionCell: UITableViewCell {
     
     fileprivate func setupViews() {
         
-        backgroundColor = .white
+        backgroundColor = .clear
         selectionStyle = .none
         
         addSubview(iconImageView)

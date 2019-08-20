@@ -8,12 +8,13 @@
 
 import UIKit
 
-class MenuController : UITableViewController {
+class MenuController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Properties
     
-    fileprivate let header = MenuHeader()
+    fileprivate let header = ProfileCell()
     fileprivate let reuseIdentifier = "menuOption"
+    fileprivate let tableView = UITableView()
     
     var delegate : ContainerDelegate?
     
@@ -21,58 +22,75 @@ class MenuController : UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupViews()
-        
+        setupUI()
     }
     
     // MARK: - Handlers
     
-    fileprivate func setupViews() {
+    fileprivate func setupUI() {
         
-        view.backgroundColor = .white
+//        view.backgroundColor = .white
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.colour1.cgColor,
+                                UIColor.white.cgColor,
+                                UIColor.colour5.cgColor]
+        gradientLayer.locations = [-1, 0.5, 2.5]
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: view.frame.width-70, height: view.frame.height)
+        view.layer.addSublayer(gradientLayer)
         
+        view.dropShadow()
+        view.addSubview(tableView)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(ProfileCell.self, forCellReuseIdentifier: "header")
         tableView.register(MenuOptionCell.self, forCellReuseIdentifier: reuseIdentifier)
         tableView.separatorStyle = .none
         tableView.rowHeight = view.frame.height/10
         tableView.isScrollEnabled = false
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = .clear
         
-        header.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleHeaderTap)))
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         
-    }
-    
-    @objc fileprivate func handleHeaderTap(){
-        let option = menuOption(rawValue: 0)
-        delegate?.handleMenuToggle(forMenuOption: option)
     }
     
     // MARK: - Tableview Datasource
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return header
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0:
+            return 200
+        default:
+            return 80
+        }
     }
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 180
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let option = menuOption(rawValue: indexPath.row+1)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let option = menuOption(rawValue: indexPath.row)
         delegate?.handleMenuToggle(forMenuOption: option)
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! MenuOptionCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let option = menuOption(rawValue: indexPath.row+1)
-        cell.descriptionLabel.text = option?.description
-        cell.iconImageView.image = option?.image.withRenderingMode(.alwaysTemplate)
+        switch indexPath.row {
+        case 0:
+            return header
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! MenuOptionCell
+            let option = menuOption(rawValue: indexPath.row)
+            cell.descriptionLabel.text = option?.description
+            cell.iconImageView.image = option?.image.withRenderingMode(.alwaysTemplate)
+            return cell
+        }
         
-        return cell
     }
     
     

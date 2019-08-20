@@ -8,25 +8,29 @@
 
 import UIKit
 
-class MenuHeader : UIView {
+class ProfileCell : UITableViewCell {
     
     // MARK: - Properties
     
-    let nameLabel : UILabel = {
+    fileprivate let nameLabel : UILabel = {
         let label = UILabel()
         label.text = "Profile Name"
         label.font = .boldSystemFont(ofSize: 18)
+        label.textAlignment = .center
+        label.textColor = .black
         return label
     }()
     
-    let descriptionLabel : UILabel = {
+    fileprivate let descriptionLabel : UILabel = {
         let label = UILabel()
         label.text = "Profile Description"
         label.font = .systemFont(ofSize: 16)
+        label.textAlignment = .center
+        label.textColor = .black
         return label
     }()
     
-    let profileImageView : UIImageView = {
+    fileprivate let profileImageView : UIImageView = {
         let image = UIImageView(image: #imageLiteral(resourceName: "placeholder"))
         image.contentMode = .scaleAspectFill
         image.layer.borderWidth = 1
@@ -36,10 +40,12 @@ class MenuHeader : UIView {
         return image
     }()
     
+    fileprivate let bottomSeperator = UIView()
+    
     // MARK: - Init
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
     }
     
@@ -49,15 +55,16 @@ class MenuHeader : UIView {
     
     // MARK: - Handlers
     
-    func setupUI() {
+    fileprivate func setupUI() {
         
-        backgroundColor = .white
+        backgroundColor = .clear
+        selectionStyle = .none
         
         addSubview(profileImageView)
-        profileImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
+        profileImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        profileImageView.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        profileImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         profileImageView.layer.cornerRadius = 60
         
         let labelsStack = UIStackView(arrangedSubviews: [nameLabel, descriptionLabel])
@@ -67,8 +74,16 @@ class MenuHeader : UIView {
         labelsStack.distribution  = .fillEqually
         
         addSubview(labelsStack)
-        labelsStack.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 16).isActive = true
-        labelsStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        labelsStack.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 8).isActive = true
+        labelsStack.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
+        addSubview(bottomSeperator)
+        bottomSeperator.translatesAutoresizingMaskIntoConstraints = false
+        bottomSeperator.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        bottomSeperator.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        bottomSeperator.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        bottomSeperator.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        bottomSeperator.backgroundColor = .black
         
     }
     

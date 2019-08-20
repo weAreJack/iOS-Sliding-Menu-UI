@@ -19,9 +19,11 @@
 		A084C995230892640093AB25 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084C994230892640093AB25 /* SettingsController.swift */; };
 		A084C9972308928A0093AB25 /* HelpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084C9962308928A0093AB25 /* HelpController.swift */; };
 		A084C999230892A70093AB25 /* LegalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084C998230892A70093AB25 /* LegalController.swift */; };
-		A084C99B230AA1050093AB25 /* MenuHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084C99A230AA1050093AB25 /* MenuHeader.swift */; };
+		A084C99B230AA1050093AB25 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084C99A230AA1050093AB25 /* ProfileCell.swift */; };
 		A084C99D230AA5A00093AB25 /* MenuOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084C99C230AA5A00093AB25 /* MenuOptionCell.swift */; };
-		A084C9A0230AB13D0093AB25 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084C99F230AB13D0093AB25 /* ViewControllerExtensions.swift */; };
+		A084C9A0230AB13D0093AB25 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084C99F230AB13D0093AB25 /* ViewControllerExtension.swift */; };
+		A08A26DE230AFC4A00A30EB6 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08A26DD230AFC4A00A30EB6 /* ViewExtension.swift */; };
+		A08A26E0230C0D4C00A30EB6 /* UIColourExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08A26DF230C0D4C00A30EB6 /* UIColourExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,9 +62,11 @@
 		A084C994230892640093AB25 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		A084C9962308928A0093AB25 /* HelpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpController.swift; sourceTree = "<group>"; };
 		A084C998230892A70093AB25 /* LegalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalController.swift; sourceTree = "<group>"; };
-		A084C99A230AA1050093AB25 /* MenuHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeader.swift; sourceTree = "<group>"; };
+		A084C99A230AA1050093AB25 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		A084C99C230AA5A00093AB25 /* MenuOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionCell.swift; sourceTree = "<group>"; };
-		A084C99F230AB13D0093AB25 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
+		A084C99F230AB13D0093AB25 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		A08A26DD230AFC4A00A30EB6 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		A08A26DF230C0D4C00A30EB6 /* UIColourExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColourExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				A084C95A2308863B0093AB25 /* AppDelegate.swift */,
-				A084C99123088F890093AB25 /* ViewModels */,
 				A084C99023088F820093AB25 /* Views */,
 				A084C98F23088F6F0093AB25 /* Controllers */,
 				A084C99E230AB1290093AB25 /* Extensions */,
@@ -168,23 +171,18 @@
 		A084C99023088F820093AB25 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A084C99A230AA1050093AB25 /* MenuHeader.swift */,
+				A084C99A230AA1050093AB25 /* ProfileCell.swift */,
 				A084C99C230AA5A00093AB25 /* MenuOptionCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		A084C99123088F890093AB25 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		A084C99E230AB1290093AB25 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A084C99F230AB13D0093AB25 /* ViewControllerExtensions.swift */,
+				A084C99F230AB13D0093AB25 /* ViewControllerExtension.swift */,
+				A08A26DD230AFC4A00A30EB6 /* ViewExtension.swift */,
+				A08A26DF230C0D4C00A30EB6 /* UIColourExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -322,12 +320,14 @@
 				A084C99D230AA5A00093AB25 /* MenuOptionCell.swift in Sources */,
 				A084C989230888E50093AB25 /* MenuController.swift in Sources */,
 				A084C98B230889C60093AB25 /* HomeController.swift in Sources */,
-				A084C9A0230AB13D0093AB25 /* ViewControllerExtensions.swift in Sources */,
-				A084C99B230AA1050093AB25 /* MenuHeader.swift in Sources */,
+				A084C9A0230AB13D0093AB25 /* ViewControllerExtension.swift in Sources */,
+				A084C99B230AA1050093AB25 /* ProfileCell.swift in Sources */,
 				A084C995230892640093AB25 /* SettingsController.swift in Sources */,
+				A08A26DE230AFC4A00A30EB6 /* ViewExtension.swift in Sources */,
 				A084C98D23088C400093AB25 /* MenuOption.swift in Sources */,
 				A084C999230892A70093AB25 /* LegalController.swift in Sources */,
 				A084C9972308928A0093AB25 /* HelpController.swift in Sources */,
+				A08A26E0230C0D4C00A30EB6 /* UIColourExtension.swift in Sources */,
 				A084C95B2308863B0093AB25 /* AppDelegate.swift in Sources */,
 				A084C993230890350093AB25 /* ProfileController.swift in Sources */,
 			);
