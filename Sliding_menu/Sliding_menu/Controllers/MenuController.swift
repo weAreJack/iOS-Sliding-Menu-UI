@@ -28,8 +28,6 @@ class MenuController : UIViewController, UITableViewDelegate, UITableViewDataSou
     // MARK: - Handlers
     
     fileprivate func setupUI() {
-        
-//        view.backgroundColor = .white
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [UIColor.colour1.cgColor,
                                 UIColor.white.cgColor,
@@ -55,7 +53,6 @@ class MenuController : UIViewController, UITableViewDelegate, UITableViewDataSou
         tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        
     }
     
     // MARK: - Tableview Datasource
@@ -74,24 +71,19 @@ class MenuController : UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let option = menuOption(rawValue: indexPath.row)
+        let option = MenuOption(rawValue: indexPath.row)
         delegate?.handleMenuToggle(forMenuOption: option)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         switch indexPath.row {
         case 0:
             return header
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! MenuOptionCell
-            let option = menuOption(rawValue: indexPath.row)
-            cell.descriptionLabel.text = option?.description
-            cell.iconImageView.image = option?.image.withRenderingMode(.alwaysTemplate)
+            cell.menuOption = MenuOption(rawValue: indexPath.row)
             return cell
         }
-        
     }
-    
     
 }

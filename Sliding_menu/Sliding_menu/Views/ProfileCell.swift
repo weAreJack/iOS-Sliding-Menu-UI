@@ -12,35 +12,19 @@ class ProfileCell : UITableViewCell {
     
     // MARK: - Properties
     
-    fileprivate let nameLabel : UILabel = {
-        let label = UILabel()
-        label.text = "Profile Name"
-        label.font = .boldSystemFont(ofSize: 18)
-        label.textAlignment = .center
-        label.textColor = .black
-        return label
-    }()
-    
-    fileprivate let descriptionLabel : UILabel = {
-        let label = UILabel()
-        label.text = "Profile Description"
-        label.font = .systemFont(ofSize: 16)
-        label.textAlignment = .center
-        label.textColor = .black
-        return label
-    }()
+    fileprivate let nameLabel = setupLabel(titleText: "Profile Name", font: .boldSystemFont(ofSize: 18))
+    fileprivate let descriptionLabel = setupLabel(titleText: "Profile Description", font: .systemFont(ofSize: 16))
+    fileprivate let bottomSeperator = UIView()
     
     fileprivate let profileImageView : UIImageView = {
         let image = UIImageView(image: #imageLiteral(resourceName: "placeholder"))
         image.contentMode = .scaleAspectFill
-        image.layer.borderWidth = 1
+        image.layer.borderWidth = 4
         image.layer.borderColor = UIColor.black.cgColor
         image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
-    
-    fileprivate let bottomSeperator = UIView()
     
     // MARK: - Init
     
@@ -85,6 +69,16 @@ class ProfileCell : UITableViewCell {
         bottomSeperator.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         bottomSeperator.backgroundColor = .black
         
+    }
+    
+    static func setupLabel(titleText: String?, font: UIFont) -> UILabel {
+        let label = UILabel()
+        label.text = titleText
+        label.font = font
+        label.textAlignment = .center
+        label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }
     
 }

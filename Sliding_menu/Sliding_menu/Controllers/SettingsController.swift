@@ -12,7 +12,7 @@ class SettingsController : UIViewController {
     
     // MARK: - Properties
     
-    let imageView = UIImageView(image: #imageLiteral(resourceName: "settings"))
+    fileprivate let imageView = UIImageView(image: #imageLiteral(resourceName: "settings"))
     
     // MARK: - ViewDidLoad
     

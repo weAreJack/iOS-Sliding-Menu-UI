@@ -12,7 +12,7 @@ class LegalController : UIViewController {
     
     // MARK: - Properties
     
-    let imageView = UIImageView(image: #imageLiteral(resourceName: "legal"))
+    fileprivate let imageView = UIImageView(image: #imageLiteral(resourceName: "legal"))
     
     // MARK: - ViewDidLoad
     

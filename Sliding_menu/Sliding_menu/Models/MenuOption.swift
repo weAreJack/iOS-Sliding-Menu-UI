@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum menuOption : Int, CustomStringConvertible {
+enum MenuOption : Int, CustomStringConvertible {
     
     case Profile
     case Settings

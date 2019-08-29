@@ -12,7 +12,7 @@ class HelpController : UIViewController {
     
     // MARK: - Properties
     
-    let imageView = UIImageView(image: #imageLiteral(resourceName: "help"))
+    fileprivate let imageView = UIImageView(image: #imageLiteral(resourceName: "help"))
     
     // MARK: - ViewDidLoad
     

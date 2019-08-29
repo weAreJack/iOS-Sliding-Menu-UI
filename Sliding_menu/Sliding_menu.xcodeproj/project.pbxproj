@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0414AC923173096002DE53C /* ContainerController+Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0414AC823173096002DE53C /* ContainerController+Handlers.swift */; };
 		A084C95B2308863B0093AB25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084C95A2308863B0093AB25 /* AppDelegate.swift */; };
 		A084C95D2308863B0093AB25 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084C95C2308863B0093AB25 /* ContainerController.swift */; };
 		A084C9622308863F0093AB25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A084C9612308863F0093AB25 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A0414AC823173096002DE53C /* ContainerController+Handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContainerController+Handlers.swift"; sourceTree = "<group>"; };
 		A084C9572308863B0093AB25 /* Sliding_menu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sliding_menu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A084C95A2308863B0093AB25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A084C95C2308863B0093AB25 /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				A084C98A230889C60093AB25 /* HomeController.swift */,
 				A084C988230888E50093AB25 /* MenuController.swift */,
 				A084C95C2308863B0093AB25 /* ContainerController.swift */,
+				A0414AC823173096002DE53C /* ContainerController+Handlers.swift */,
 				A084C9962308928A0093AB25 /* HelpController.swift */,
 				A084C998230892A70093AB25 /* LegalController.swift */,
 				A084C994230892640093AB25 /* SettingsController.swift */,
@@ -321,6 +324,7 @@
 				A084C989230888E50093AB25 /* MenuController.swift in Sources */,
 				A084C98B230889C60093AB25 /* HomeController.swift in Sources */,
 				A084C9A0230AB13D0093AB25 /* ViewControllerExtension.swift in Sources */,
+				A0414AC923173096002DE53C /* ContainerController+Handlers.swift in Sources */,
 				A084C99B230AA1050093AB25 /* ProfileCell.swift in Sources */,
 				A084C995230892640093AB25 /* SettingsController.swift in Sources */,
 				A08A26DE230AFC4A00A30EB6 /* ViewExtension.swift in Sources */,

@@ -12,7 +12,7 @@ class ProfileController : UIViewController {
     
     // MARK: - Properties
     
-    let imageView = UIImageView(image: #imageLiteral(resourceName: "profile"))
+    fileprivate let imageView = UIImageView(image: #imageLiteral(resourceName: "profile"))
     
     // MARK: - ViewDidLoad
     

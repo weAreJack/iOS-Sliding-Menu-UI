@@ -12,6 +12,15 @@ class MenuOptionCell: UITableViewCell {
     
     // MARK: - Properties
     
+    let descriptionLabel = ProfileCell.setupLabel(titleText: nil, font: .systemFont(ofSize: 16))
+    
+    var menuOption : MenuOption? {
+        didSet {
+            descriptionLabel.text = menuOption?.description
+            iconImageView.image = menuOption?.image.withRenderingMode(.alwaysTemplate)
+        }
+    }
+    
     let iconImageView : UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -19,14 +28,6 @@ class MenuOptionCell: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.tintColor = .black
         return imageView
-    }()
-    
-    let descriptionLabel : UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
     }()
     
     // MARK: - Init
